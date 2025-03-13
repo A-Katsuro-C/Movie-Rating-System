@@ -13,6 +13,7 @@ public class MovieRatingSystem {
         int sum = 0;
         int ratingAverage;
         String genre = "";
+        String favGenre = "";
 
         int count = 0;
 
@@ -92,20 +93,32 @@ public class MovieRatingSystem {
         switch(genre){
             case "Action": 
                 System.out.println("You love excitement and thrills");
+                favGenre = genre.equals("Action") ? "John Wick" : "Intersteller";
+                System.out.println("You might like: " + favGenre);
                 break;
             case "Comedy":
                 System.out.println("You enjoy a good laugh");
+                favGenre = genre.equals("Comedy") ? "Ted" : "John Wick";
+                System.out.println("You might like: " + favGenre);
                 break;
             case "Horror": 
                 System.out.println("You have a taste for fear!");
+                favGenre = genre.equals("Horror") ? "Insidious" : "Ted";
+                System.out.println("You might like: " + favGenre);
                 break;
             case "Drama":
                 System.out.println("You appreciate deep storytelling.");
+                favGenre = genre.equals("Drama") ? "The Crown" : "Insidious";
+                System.out.println("You might like: " + favGenre);
                 break;
             case "Sci-Fi":
                 System.out.println("You love futuristic and imaginative worlds!");
+                favGenre = genre.equals("Sci-Fi") ? "Intersteller" : "Intersteller";
+                System.out.println("You might like: " + favGenre);
                 break;
         }
+
+        
         
         input.close();
     }
