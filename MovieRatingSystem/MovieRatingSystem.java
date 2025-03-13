@@ -12,6 +12,7 @@ public class MovieRatingSystem {
         //Variables for Average Rating
         int sum = 0;
         int ratingAverage;
+        String genre = "";
 
         int count = 0;
 
@@ -83,7 +84,27 @@ public class MovieRatingSystem {
             }
         }
         if (count == MAX){
-            System.out.println("You seem to enjoy most movies!");
+            System.out.println("You seem to enjoy most movies!\n");
+        }
+
+        System.out.print("Pick your favorite genre from this list: Action | Comedy | Horror | Drama | Sci-Fi \n");
+        genre = input.nextLine();
+        switch(genre){
+            case "Action": 
+                System.out.println("You love excitement and thrills");
+                break;
+            case "Comedy":
+                System.out.println("You enjoy a good laugh");
+                break;
+            case "Horror": 
+                System.out.println("You have a taste for fear!");
+                break;
+            case "Drama":
+                System.out.println("You appreciate deep storytelling.");
+                break;
+            case "Sci-Fi":
+                System.out.println("You love futuristic and imaginative worlds!");
+                break;
         }
         
         input.close();
