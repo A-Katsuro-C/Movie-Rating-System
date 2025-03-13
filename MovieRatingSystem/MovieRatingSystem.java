@@ -12,9 +12,10 @@ public class MovieRatingSystem {
         //Variables for Average Rating
         int sum = 0;
         int ratingAverage;
+        //Variables for genres
         String genre = "";
         String favGenre = "";
-
+        //Variable for count to see if all movies are rated higher than 7
         int count = 0;
 
         //Asks for users name
@@ -44,13 +45,13 @@ public class MovieRatingSystem {
             
         }
 
-        //Step 3: Calculates the Average Rating
+        //Step 3: Calculates the Average Rating and stores them
         for (int i = 0; i < MAX; i++){
             sum += movieRatings[i];
         }
-
         ratingAverage = sum / MAX;
-        //Outputs info
+
+        //Outputs Movie, Rating, and step 5 (shows favotite movie and if rated below 4)
         System.out.println("Name: " + name + "\nMovie Name - Rating\n");
         for (int i = 0; i < MAX; i++) {
             System.out.print(movieNames[i] + " - ");
@@ -79,6 +80,7 @@ public class MovieRatingSystem {
             System.out.println(" You are a tough critic");
         }
 
+        //Partial Step 6: Checks for all movies of high rating and prints if it does
         for(int i = 0; i < MAX; i++){
             if (movieRatings[i] >= 7 ){
                 count++;
@@ -88,6 +90,7 @@ public class MovieRatingSystem {
             System.out.println("You seem to enjoy most movies!\n");
         }
 
+        //Step 7 & 8 Makes Switch statement for favorite genre and implements conditional operator for genres and outputs them
         System.out.print("Pick your favorite genre from this list: Action | Comedy | Horror | Drama | Sci-Fi \n");
         genre = input.nextLine();
         switch(genre){
@@ -118,8 +121,6 @@ public class MovieRatingSystem {
                 break;
         }
 
-        
-        
         input.close();
     }
 }
