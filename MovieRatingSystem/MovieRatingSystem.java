@@ -2,21 +2,23 @@ import java.util.Scanner;
 
 public class MovieRatingSystem {
     public static void main(String[] args){
+        //Step 1: Implements User Input Handling 
         Scanner input = new Scanner(System.in); //input Scanner
         String name; // vairable to ask name 
-        //Arrays to storevthe Name of the Movie and its rating
+        //Variables to store the Name of the Movie and its rating
         int MAX = 5; 
         String[] movieNames = new String[MAX];
         int[] movieRatings = new int[MAX];
+        //Variables for Average Rating
         int sum = 0;
         int ratingAverage;
 
-        //Asks for users Name
+        //Asks for users name
         System.out.println("Welcome to the Movie Rating System");
         System.out.println("\nWhat is your name?");
         name = input.nextLine();
 
-        //Asks for top 5 movies
+        //Step 2: Accept and Validate Movie Ratings
         System.out.println("Hello " + name);
         System.out.println("\nWhat are 5 Movies you've recently seen?");
         for(int i = 0; i < movieNames.length; i++){
@@ -38,12 +40,13 @@ public class MovieRatingSystem {
             
         }
 
+        //Step 3: Calculates the Average Rating
         for (int i = 0; i < MAX; i++){
             sum += movieRatings[i];
         }
 
         ratingAverage = sum / MAX;
-
+        
         //Outputs info
         System.out.println(name);
         for (int i = 0; i < MAX; i++) {
@@ -52,6 +55,18 @@ public class MovieRatingSystem {
         }
 
         System.out.print("Your average rating is: " + ratingAverage);
+        //Step 4: Implements Rating Classification (if-else Statments)
+        if (ratingAverage == 10 || ratingAverage == 9){
+            System.out.println("You are a cinephile.");
+        } else if (ratingAverage == 8 || ratingAverage == 7){
+            System.out.println("You enjoy movies quite a bit.");
+        } else if (ratingAverage == 6 || ratingAverage == 5){
+            System.out.println("You have mixed feelings about movies.");
+        }else{
+            System.out.println("You are a tough critic");
+        }
+
+        
         input.close();
     }
 }
