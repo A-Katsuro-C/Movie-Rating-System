@@ -13,6 +13,8 @@ public class MovieRatingSystem {
         int sum = 0;
         int ratingAverage;
 
+        int count = 0;
+
         //Asks for users name
         System.out.println("Welcome to the Movie Rating System");
         System.out.println("\nWhat is your name?");
@@ -47,7 +49,7 @@ public class MovieRatingSystem {
 
         ratingAverage = sum / MAX;
         //Outputs info
-        System.out.println("Name: " + name + "\nRating:\n");
+        System.out.println("Name: " + name + "\nMovie Name - Rating\n");
         for (int i = 0; i < MAX; i++) {
             System.out.print(movieNames[i] + " - ");
             System.out.println(movieRatings[i]);
@@ -56,11 +58,14 @@ public class MovieRatingSystem {
             }
             if (movieRatings[i] < 4){
                 System.out.println("That Movie didn't impress you much.\n");
+                if (movieRatings[i] < 3){
+                    System.out.println("You have strong opinions on movies.\n");
+                }
             }
             
         }
 
-        System.out.print("Your average rating is: " + ratingAverage);
+        System.out.print("\nYour average rating is: " + ratingAverage);
         //Step 4: Implements Rating Classification (if-else Statments)
         if (ratingAverage == 10 || ratingAverage == 9){
             System.out.println(" You are a cinephile.");
@@ -72,6 +77,14 @@ public class MovieRatingSystem {
             System.out.println(" You are a tough critic");
         }
 
+        for(int i = 0; i < MAX; i++){
+            if (movieRatings[i] >= 7 ){
+                count++;
+            }
+        }
+        if (count == MAX){
+            System.out.println("You seem to enjoy most movies!");
+        }
         
         input.close();
     }
