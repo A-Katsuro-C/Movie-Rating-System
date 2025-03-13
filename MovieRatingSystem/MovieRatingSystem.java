@@ -8,6 +8,8 @@ public class MovieRatingSystem {
         int MAX = 5; 
         String[] movieNames = new String[MAX];
         int[] movieRatings = new int[MAX];
+        int sum = 0;
+        int ratingAverage;
 
         //Asks for users Name
         System.out.println("Welcome to the Movie Rating System");
@@ -36,12 +38,20 @@ public class MovieRatingSystem {
             
         }
 
+        for (int i = 0; i < MAX; i++){
+            sum += movieRatings[i];
+        }
+
+        ratingAverage = sum / MAX;
+
         //Outputs info
         System.out.println(name);
         for (int i = 0; i < MAX; i++) {
             System.out.print(movieNames[i] + " - ");
             System.out.println(movieRatings[i]);
         }
+
+        System.out.print("Your average rating is: " + ratingAverage);
         input.close();
     }
 }
