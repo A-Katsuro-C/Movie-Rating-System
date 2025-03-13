@@ -3,10 +3,11 @@ import java.util.Scanner;
 public class MovieRatingSystem {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in); //input Scanner
-        String name; // vairable to ask name
-        //Arrays to storevthe Name of the Movie and its rating 
-        String[] movieNames = new String[5];
-        int[] movieRatings = new int[5];
+        String name; // vairable to ask name 
+        //Arrays to storevthe Name of the Movie and its rating
+        int MAX = 5; 
+        String[] movieNames = new String[MAX];
+        int[] movieRatings = new int[MAX];
 
         //Asks for users Name
         System.out.println("Welcome to the Movie Rating System");
@@ -23,15 +24,24 @@ public class MovieRatingSystem {
         //Asks for rating of movie
         System.out.println("What are the ratings for those Movies out of 1-10?");
         for (int i = 0; i < movieRatings.length; i++){
-            movieRatings[i] = input.nextInt();
-            input.nextLine();
+            int ratingInput = input.nextInt(); // vairable for condition check
+            if (!(ratingInput > 10 || ratingInput < 1)){
+                movieRatings[i] = ratingInput;
+                input.nextLine();
+            } else {
+                System.out.println("Invalid number, Please enter a new number: ");
+                i--;
+            }
+            
+            
         }
 
         //Outputs info
         System.out.println(name);
-        System.out.println(movieNames[0]);
-        for (int i = 0; i < movieNames.length; i++) {
-            System.out.println(movieNames[i]);
+        for (int i = 0; i < MAX; i++) {
+            System.out.print(movieNames[i] + " - ");
+            System.out.println(movieRatings[i]);
         }
+        input.close();
     }
 }
